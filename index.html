@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuklas - Discover the Philippines</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L4 7V12C4 16.5 7.5 20.5 12 22C16.5 20.5 20 16.5 20 12V7L12 2Z" fill="#2D5016"/>
+                </svg>
+                <span>TUKLAS</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Destination</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-outline">Sign-up</button>
+                <button class="btn btn-solid">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    <input type="search" placeholder="Search" aria-label="Search destinations">
+                </div>
+
+                <div class="hero-text">
+                    <div class="location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <span id="destination-location">Cebu, Philippines</span>
+                    </div>
+                    <h1 id="destination-title">KAWASAN FALLS</h1>
+                    <p id="destination-description">A stunning three-tiered waterfall cascading into turquoise pools, perfect for swimming and canyoneering adventures in the heart of Cebu's tropical jungle.</p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn btn-explore">Explore</button>
+                        <button class="btn btn-bookmark" aria-label="Bookmark destination">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-cards">
+                <button class="carousel-btn carousel-prev" aria-label="Previous destination">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <div class="cards-container" id="cards-container">
+                    <div class="destination-card" data-index="0">
+                        <img src="assets/images/kawasan-card.png" alt="Kawasan Falls">
+                        <div class="card-overlay">
+                            <span class="card-location">Cebu, Philippines</span>
+                            <h3 class="card-title">KAWASAN FALLS</h3>
+                        </div>
+                    </div>
+                    <div class="destination-card" data-index="1">
+                        <img src="assets/images/elnido-card.png" alt="El Nido Island">
+                        <div class="card-overlay">
+                            <span class="card-location">Palawan, Philippines</span>
+                            <h3 class="card-title">EL NIDO</h3>
+                        </div>
+                    </div>
+                    <div class="destination-card" data-index="2">
+                        <img src="assets/images/siargao-card.png" alt="Siargao Island Beach">
+                        <div class="card-overlay">
+                            <span class="card-location">Surigao del Norte, Philippines</span>
+                            <h3 class="card-title">SIARGAO ISLAND</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn carousel-next" aria-label="Next destination">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
