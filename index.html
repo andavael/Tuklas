@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuklas - Discover the Philippines</title>
-    <link rel="stylesheet" href="style.css"> 
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/home-destinations.css">
 </head>
 <body>
     <header class="navbar">
@@ -15,18 +23,26 @@
                 </svg>
                 <span>TUKLAS</span>
             </div>
-            <nav class="nav-menu">
-                <a href="#" class="nav-link active">Home</a>
-                <a href="#" class="nav-link">Destination</a>
-                <a href="#" class="nav-link">Contact</a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#destinations" class="nav-link">Destinations</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="nav-actions">
                 <button class="btn btn-outline">Sign-up</button>
                 <button class="btn btn-solid">Login</button>
             </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <main class="hero" id="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-container">
@@ -36,7 +52,7 @@
                         <circle cx="11" cy="11" r="8"/>
                         <path d="M21 21l-4.35-4.35"/>
                     </svg>
-                    <input type="search" placeholder="Search" aria-label="Search destinations">
+                    <input type="search" placeholder="Search destinations" aria-label="Search destinations">
                 </div>
 
                 <div class="hero-text">
@@ -99,8 +115,127 @@
                 </button>
             </div>
         </div>
+
+        <!-- Scroll Down Indicator -->
+        <a href="#destinations" class="scroll-indicator" aria-label="Scroll to destinations">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </a>
     </main>
 
-    <script src="script.js"></script>
+    <!-- DESTINATIONS SECTION -->
+    <section class="destinations-section" id="destinations">
+        <!-- Section Header -->
+        <div class="destinations-header">
+            <div class="container">
+                <h1 class="section-title-main">TOP DESTINATIONS</h1>
+
+                <p class="section-description">
+                    Discover the Philippines through every kind of journey—sunlit coasts, cultural treasures, 
+                    and vibrant cities. Whether you seek rest, adventure, or connection, each path 
+                    offers a new story to uncover.
+                </p>
+
+                <p class="section-subtitle">
+                    Let <span class="highlight">Tuklas</span> guide your way.
+                </p>
+            </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs-section">
+            <div class="container">
+                <div class="category-tabs" role="tablist" aria-label="Destination categories">
+                    <button class="tab-btn active" data-category="popular" role="tab" aria-selected="true">
+                        Popular
+                    </button>
+                    <button class="tab-btn" data-category="beaches" role="tab" aria-selected="false">
+                        Beaches
+                    </button>
+                    <button class="tab-btn" data-category="mountains" role="tab" aria-selected="false">
+                        Mountains
+                    </button>
+                    <button class="tab-btn" data-category="cities" role="tab" aria-selected="false">
+                        Cities
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Destination Cards Carousel -->
+        <div class="destinations-carousel">
+            <div class="container">
+                <div class="carousel-container">
+                    <!-- Cards Container -->
+                    <div class="cards-wrapper">
+                        <div class="cards-track" id="dest-cards-track" role="region" aria-live="polite">
+                            <!-- Cards inserted by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls outside the carousel container -->
+                <button class="carousel-control carousel-prev-dest" aria-label="Previous destinations">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                
+                <button class="carousel-control carousel-next-dest" aria-label="Next destinations">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L4 7V12C4 16.5 7.5 20.5 12 22C16.5 20.5 20 16.5 20 12V7L12 2Z" fill="#A5B68D"/>
+                        </svg>
+                        <span>TUKLAS</span>
+                    </div>
+                    <p class="footer-tagline">Discover the Philippines</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Explore</h4>
+                        <a href="#destinations">Destinations</a>
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tuklas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/home-destinations.js"></script>
 </body>
 </html>
