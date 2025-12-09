@@ -1,36 +1,3 @@
-/* ========================================
-   DESTINATIONS SECTION - REDESIGNED
-   ======================================== */
-
-/* SCROLL INDICATOR */
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    animation: bounce 2s infinite;
-    backdrop-filter: blur(10px);
-    z-index: 10;
-}
-
-.scroll-indicator:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateX(-50%) scale(1.1);
-}
-
-.scroll-indicator svg {
-    stroke: white;
-}
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
@@ -44,7 +11,6 @@
     }
 }
 
-/* DESTINATIONS SECTION */
 .destinations-section {
     background-image: url('../assets/images/destinations_bg.png');
     background-size: cover;
@@ -57,7 +23,6 @@
     min-height: 100vh;
 }
 
-/* WHITE OVERLAY */
 .destinations-section::before {
     content: '';
     position: absolute;
@@ -70,7 +35,6 @@
     pointer-events: none;
 }
 
-/* Section Header */
 .destinations-header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -313,22 +277,19 @@
     padding: 1.5rem;
 }
 
-
-/* REMOVE IMAGE OVERLAY */
 .dest-card-overlay {
     display: none;
 }
 
-/* Save Button */
 .dest-save-btn {
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
     width: 44px;
     height: 44px;
-    background: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 50%;
+    background: #FFFFFF !important;
+    border: none !important;
+    border-radius: 50% !important;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -337,29 +298,38 @@
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     pointer-events: auto;
+    padding: 1rem !important;
 }
 
 .dest-save-btn:hover {
-    background:#CC9900;
-    color: white;
-    transform: scale(1.09);
+    background: linear-gradient(135deg, #F4C542 0%, #E6B84D 50%, #D4A854 100%) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 6px 20px rgba(244, 197, 66, 0.5),
+        0 0 35px rgba(230, 184, 77, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.6);
 }
 
-.dest-save-btn:focus {
-    outline: 2px solid #3F4F2F;
-    outline-offset: 2px;
-}
-
-.dest-save-btn.saved {
-    background: linear-gradient(135deg, #E2B13C 0%, #D4A574 100%);
+.dest-save-btn:active {
+    transform: translateY(-1px);
 }
 
 .dest-save-btn svg {
     width: 20px;
     height: 20px;
-    stroke: #3F4F2F;
+    stroke: #2D5016;
     fill: none;
     transition: all 0.2s ease;
+}
+
+.dest-save-btn:hover svg {
+    stroke: #FFFFFF;
+}
+
+/* Saved state */
+.dest-save-btn.saved {
+    background: linear-gradient(135deg, #E2B13C 0%, #D4A574 100%) !important;
 }
 
 .dest-save-btn.saved svg {
@@ -367,7 +337,11 @@
     stroke: white;
 }
 
-/* Card Content - TEXT BELOW IMAGE */
+.dest-save-btn:focus {
+    outline: 2px solid #3F4F2F;
+    outline-offset: 2px;
+}
+
 .dest-card-content {
     padding: 1.5rem 1.75rem 1.75rem;
     display: flex;
@@ -376,7 +350,6 @@
     flex-grow: 1;
 }
 
-/* Destination Title */
 .dest-card-title {
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
@@ -386,7 +359,6 @@
     line-height: 1.3;
 }
 
-/* Location */
 .dest-card-location {
     display: flex;
     align-items: center;
@@ -403,7 +375,6 @@
     flex-shrink: 0;
 }
 
-/* Info Row - Ratings and Category */
 .dest-card-info-row {
     display: flex;
     justify-content: space-between;
@@ -456,7 +427,6 @@
     gap: 0.35rem;
 }
 
-/* See More Button */
 .dest-see-more-btn {
     width: 100%;
     padding: 0.875rem;
@@ -480,7 +450,6 @@
     box-shadow: 0 6px 16px rgba(3, 46, 0, 0.4);
 }
 
-/* Carousel Controls */
 .carousel-control {
     position: absolute;
     top: 50%;
@@ -535,12 +504,10 @@
     transform: translateY(-50%);
 }
 
-/* Remove old View All Section */
 .view-all-section {
     display: none;
 }
 
-/* Footer */
 .footer {
     background: linear-gradient(135deg, #3F4F2F 0%, #2D5016 100%);
     color: white;
@@ -606,7 +573,6 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Mobile Menu */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -637,7 +603,6 @@
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* RESPONSIVE DESIGN */
 
 /* Large Desktop */
 @media (min-width: 1400px) {
@@ -871,7 +836,6 @@
     }
 }
 
-/* HERO SECTION BUTTON GRADIENTS */
 .btn-explore {
     padding: 1rem 3rem;
     background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F0 100%);
@@ -911,13 +875,13 @@
     color: var(--white);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(63, 79, 47, 0.4);
+    
 }
 
 .btn-bookmark svg {
     stroke: currentColor;
 }
 
-/* Smooth Scroll */
 html {
     scroll-behavior: smooth;
 }

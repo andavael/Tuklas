@@ -1,10 +1,10 @@
 const destinations = [
     {
-        title: 'KAWASAN FALLS',
-        location: 'Cebu, Philippines',
-        description: 'A stunning three-tiered waterfall cascading into turquoise pools, perfect for swimming and canyoneering adventures in the heart of Cebu\'s tropical jungle.',
-        background: 'assets/images/kawasan.png',
-        card: 'assets/images/kawasan-card.png'
+        title: 'SIARGAO ISLAND',
+        location: 'Surigao del Norte, Philippines',
+        description: 'The surfing capital of the Philippines, famous for Cloud 9 - one of the world\'s best surf breaks. This teardrop-shaped island offers pristine beaches, coconut palm forests, and a laid-back island vibe that attracts surfers and beach lovers from around the globe.',
+        background: 'assets/images/siargao.png',
+        card: 'assets/images/siargao-card.png'
     },
     {
         title: 'EL NIDO',
@@ -14,19 +14,19 @@ const destinations = [
         card: 'assets/images/elnido-card.png'
     },
     {
-        title: 'SIARGAO ISLAND',
-        location: 'Surigao del Norte, Philippines',
-        description: 'The surfing capital of the Philippines, famous for Cloud 9 - one of the world\'s best surf breaks. This teardrop-shaped island offers pristine beaches, coconut palm forests, and a laid-back island vibe that attracts surfers and beach lovers from around the globe.',
-        background: 'assets/images/siargao.png',
-        card: 'assets/images/siargao-card.png'
-    },
-    {
         title: 'MAYON VOLCANO',
         location: 'Albay, Philippines',
         description: 'The Philippines\' perfectly shaped cone and a true natural wonder. Nestled in Albay, this iconic volcano offers breathtaking views, lush landscapes, and thrilling adventures for hikers and sightseers alike.',
         background: 'assets/images/mayon.png',
         card: 'assets/images/mayon-card.png'
-    }
+    },
+    {
+        title: 'KAWASAN FALLS',
+        location: 'Cebu, Philippines',
+        description: 'A stunning three-tiered waterfall cascading into turquoise pools, perfect for swimming and canyoneering adventures in the heart of Cebu\'s tropical jungle.',
+        background: 'assets/images/kawasan.png',
+        card: 'assets/images/kawasan-card.png'
+    },
 ];
 
 let currentIndex = 0;

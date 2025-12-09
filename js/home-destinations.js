@@ -1,8 +1,3 @@
-// ========================================
-// HOME PAGE DESTINATIONS SECTION
-// ========================================
-
-// DESTINATIONS DATA
 const homeDestinations = {
     popular: [
         {
@@ -167,16 +162,15 @@ const homeDestinations = {
     ]
 };
 
-// STATE MANAGEMENT
 let destCurrentCategory = 'popular';
 let destSavedDestinations = [];
 let destCurrentScrollPosition = 0;
 
-// SVG ICONS
 const destIcons = {
-    bookmark: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
-    </svg>`,
+    bookmark: `<svg class="bookmark-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" 
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/>
+        </svg>`,
     location: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
         <circle cx="12" cy="10" r="3"/>
@@ -185,7 +179,6 @@ const destIcons = {
     flag: '🏷️'
 };
 
-// DOM ELEMENTS
 const destCardsTrack = document.getElementById('dest-cards-track');
 const destTabButtons = document.querySelectorAll('.destinations-section .tab-btn');
 const destCarouselPrev = document.querySelector('.carousel-prev-dest');
@@ -193,7 +186,6 @@ const destCarouselNext = document.querySelector('.carousel-next-dest');
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const navMenu = document.getElementById('nav-menu');
 
-// INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     loadDestSavedDestinations();
     renderDestCards(destCurrentCategory);
@@ -204,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFeaturedCard();
 });
 
-// RENDER DESTINATION CARDS WITH CLONES FOR INFINITE LOOP
 function renderDestCards(category) {
     const filteredDestinations = homeDestinations[category] || [];
     
@@ -220,13 +211,11 @@ function renderDestCards(category) {
         return;
     }
     
-    // Create original cards
     filteredDestinations.forEach((destination, index) => {
         const card = createDestCard(destination, index, false);
         destCardsTrack.appendChild(card);
     });
     
-    // Clone cards for infinite loop effect
     filteredDestinations.forEach((destination, index) => {
         const card = createDestCard(destination, index, true);
         destCardsTrack.appendChild(card);
@@ -239,7 +228,6 @@ function renderDestCards(category) {
     updateFeaturedCard();
 }
 
-// CREATE INDIVIDUAL CARD WITH NEW DESIGN
 function createDestCard(destination, index, isClone) {
     const card = document.createElement('div');
     card.className = 'destination-card';
@@ -252,7 +240,6 @@ function createDestCard(destination, index, isClone) {
     
     const isSaved = destSavedDestinations.includes(destination.id);
     
-    // Generate stars based on rating
     const starsHTML = generateStars(destination.rating);
     
     card.innerHTML = `
@@ -298,18 +285,15 @@ function createDestCard(destination, index, isClone) {
     return card;
 }
 
-// GENERATE STAR RATING (5 stars total - filled and empty)
 function generateStars(rating) {
     const fullStars = Math.floor(rating);
     const emptyStars = 5 - fullStars;
     let starsHTML = '';
     
-    // Add filled stars
     for (let i = 0; i < fullStars; i++) {
         starsHTML += `<span class="dest-star">${destIcons.star}</span>`;
     }
-    
-    // Add empty stars
+
     for (let i = 0; i < emptyStars; i++) {
         starsHTML += `<span class="dest-star empty">${destIcons.star}</span>`;
     }
@@ -317,32 +301,26 @@ function generateStars(rating) {
     return starsHTML;
 }
 
-// EVENT LISTENERS
 function initializeDestEventListeners() {
-    // Tab filtering
     if (destTabButtons) {
         destTabButtons.forEach(button => {
             button.addEventListener('click', handleDestTabClick);
         });
     }
     
-    // Carousel controls
     if (destCarouselPrev && destCarouselNext) {
         destCarouselPrev.addEventListener('click', () => slideDestCarousel('prev'));
         destCarouselNext.addEventListener('click', () => slideDestCarousel('next'));
     }
     
-    // Mobile menu toggle
     if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     }
     
-    // Event delegation for dynamic elements
     if (destCardsTrack) {
         destCardsTrack.addEventListener('click', handleDestCardClick);
     }
     
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (navMenu && mobileMenuToggle && 
             !navMenu.contains(e.target) && 
@@ -353,25 +331,22 @@ function initializeDestEventListeners() {
         }
     });
     
-    // Handle window resize
     window.addEventListener('resize', () => {
         updateDestCarouselControls();
         updateFeaturedCard();
     });
     
-    // Keyboard navigation
-    document.addEventListener('keydown', handleDestKeyboardNavigation);
+    document.addEventListener('keydown', handleDestKeyboardNavigation);   
     
-    // Touch swipe
     setupDestTouchSwipe();
     
-    // Update featured card on scroll
+
     if (destCardsTrack && destCardsTrack.parentElement) {
         destCardsTrack.parentElement.addEventListener('scroll', updateFeaturedCard);
     }
 }
 
-// TAB CLICK HANDLER
+
 function handleDestTabClick(e) {
     const button = e.currentTarget;
     const category = button.dataset.category;
@@ -388,9 +363,9 @@ function handleDestTabClick(e) {
     renderDestCards(category);
 }
 
-// CAROUSEL SLIDING WITH INFINITE LOOP
+
 function slideDestCarousel(direction) {
-    const cardWidth = 380 + 32; // card width + gap (32px = 2rem gap)
+    const cardWidth = 380 + 32; 
     const originalCards = destCardsTrack.querySelectorAll('.destination-card:not(.clone)');
     const totalOriginalCards = originalCards.length;
     
@@ -401,28 +376,23 @@ function slideDestCarousel(direction) {
         destCardsTrack.style.transition = 'transform 0.4s ease';
         destCardsTrack.style.transform = `translateX(-${destCurrentScrollPosition}px)`;
         
-        // If we've scrolled to or past the first clone, reset to the beginning
         if (destCurrentScrollPosition >= totalOriginalCards * cardWidth) {
             setTimeout(() => {
                 destCurrentScrollPosition = 0;
                 destCardsTrack.style.transition = 'none';
                 destCardsTrack.style.transform = `translateX(0px)`;
                 
-                // Re-enable transition
                 setTimeout(() => {
                     destCardsTrack.style.transition = 'transform 0.4s ease';
                 }, 50);
             }, 400);
         }
     } else {
-        // Previous button
         if (destCurrentScrollPosition <= 0) {
-            // Jump to the end instantly (showing last card)
             destCurrentScrollPosition = (totalOriginalCards - 1) * cardWidth;
             destCardsTrack.style.transition = 'none';
             destCardsTrack.style.transform = `translateX(-${destCurrentScrollPosition}px)`;
             
-            // Re-enable transition
             setTimeout(() => {
                 destCardsTrack.style.transition = 'transform 0.4s ease';
             }, 50);
@@ -435,20 +405,16 @@ function slideDestCarousel(direction) {
     
     updateDestCarouselControls();
     
-    // Update featured card after animation
     setTimeout(updateFeaturedCard, 450);
 }
 
-// UPDATE CAROUSEL CONTROLS STATE - NEVER DISABLE FOR INFINITE LOOP
 function updateDestCarouselControls() {
     if (!destCarouselPrev || !destCarouselNext || !destCardsTrack) return;
     
-    // For infinite loop, controls are always enabled
     destCarouselPrev.disabled = false;
     destCarouselNext.disabled = false;
 }
 
-// UPDATE FEATURED CARD (CENTER CARD GETS SPECIAL STYLING)
 function updateFeaturedCard() {
     if (!destCardsTrack) return;
     
@@ -472,15 +438,12 @@ function updateFeaturedCard() {
         }
     });
     
-    // Only add featured class on desktop/tablet
     if (closestCard && window.innerWidth > 767) {
         closestCard.classList.add('featured');
     }
 }
 
-// HANDLE CARD CLICKS
 function handleDestCardClick(e) {
-    // Handle Save button
     if (e.target.closest('.dest-save-btn')) {
         e.stopPropagation();
         const saveBtn = e.target.closest('.dest-save-btn');
@@ -489,7 +452,6 @@ function handleDestCardClick(e) {
         return;
     }
     
-    // Handle See More button
     if (e.target.closest('.dest-see-more-btn')) {
         e.stopPropagation();
         const seeMoreBtn = e.target.closest('.dest-see-more-btn');
@@ -499,7 +461,6 @@ function handleDestCardClick(e) {
     }
 }
 
-// TOGGLE SAVE FUNCTIONALITY
 function toggleDestSave(destinationId, button) {
     const index = destSavedDestinations.indexOf(destinationId);
     
@@ -515,20 +476,16 @@ function toggleDestSave(destinationId, button) {
     
     localStorage.setItem('destSavedDestinations', JSON.stringify(destSavedDestinations));
     
-    // Animation feedback
     button.style.transform = 'scale(1.3)';
     setTimeout(() => {
         button.style.transform = 'scale(1)';
     }, 200);
 }
 
-// HANDLE SEE MORE
 function handleDestSeeMore(destinationId) {
-    // Navigate to full destinations page
     window.location.href = `destination.html?id=${destinationId}`;
 }
 
-// MOBILE MENU TOGGLE
 function toggleMobileMenu() {
     if (!navMenu || !mobileMenuToggle) return;
     
@@ -539,7 +496,6 @@ function toggleMobileMenu() {
     mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
 }
 
-// LOAD SAVED DESTINATIONS FROM LOCALSTORAGE
 function loadDestSavedDestinations() {
     const saved = localStorage.getItem('destSavedDestinations');
     if (saved) {
@@ -551,7 +507,6 @@ function loadDestSavedDestinations() {
     }
 }
 
-// TOUCH SWIPE SUPPORT FOR MOBILE
 function setupDestTouchSwipe() {
     let touchStartX = 0;
     let touchEndX = 0;
@@ -581,14 +536,12 @@ function handleDestSwipe(startX, endX) {
     }
 }
 
-// KEYBOARD NAVIGATION
 function handleDestKeyboardNavigation(e) {
     if (document.activeElement.tagName === 'INPUT' || 
         document.activeElement.tagName === 'TEXTAREA') {
         return;
     }
     
-    // Only handle if destinations section is in view and not on mobile
     if (window.innerWidth <= 767) return;
     
     const destSection = document.getElementById('destinations');
@@ -608,9 +561,7 @@ function handleDestKeyboardNavigation(e) {
     }
 }
 
-// SMOOTH SCROLL SETUP
 function setupSmoothScroll() {
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -628,7 +579,6 @@ function setupSmoothScroll() {
     });
 }
 
-// ACTIVE NAVIGATION ON SCROLL
 function setupActiveNavigation() {
     const sections = document.querySelectorAll('section[id], main[id]');
     const navLinks = document.querySelectorAll('.nav-link');
